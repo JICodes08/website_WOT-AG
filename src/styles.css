@@ -20,7 +20,7 @@ body {
 }
 
 body.contact-page {
-    margin-top: 200px; /* Adjusts content to account for nav bar */
+    margin-top: 180px; /* Adjusts content to account for nav bar */
 }
 
 body.general-page {
@@ -77,7 +77,7 @@ footer p {
 .main-navbar {
     position: fixed;
     top: 0;
-    z-index: 100;
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: space-between; /* pushes content to edges */
@@ -96,6 +96,7 @@ footer p {
     list-style: none;
     margin: 0;
     padding: 0 40px 0 0;
+    z-index: 10050;
 }
 
 .main-navbar a {
@@ -191,6 +192,9 @@ ul {
     gap: 40px;
     margin: 40px 0;
     padding: 0 20px;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 .service-card {
@@ -199,8 +203,10 @@ ul {
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     flex: 1 1 300px;
     max-width: 350px;
+    min-width: 280px;
     padding: 32px 24px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .service-card h2 {
@@ -245,7 +251,7 @@ ul {
     position: relative;
     width: 80%;
     max-width: 1200px;
-    height: 500px;
+    /* height: 500px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -391,7 +397,7 @@ ul {
     font-size: 2.5em;
     padding: 0 20px;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 1001;
     border-radius: 8px;
     user-select: none;
 }
@@ -449,104 +455,235 @@ ul {
 
 .contact-layout {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row; /* Side by side on desktop */
     gap: 40px;
-    min-height: 600px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: flex-start;
 }
 
-@media (max-width: 1030px) {
-    .contact-layout {
-        flex-direction: column;
-        align-items: stretch;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-layout {
-        flex-direction: column;
-        align-items: stretch;
-    }
-}
-
-/* Left Side - Company Info */
+/* Business Info Section - Left side on desktop */
 .company-info-section {
-    display: flex;
-    flex-direction: column;
-    /* margin: 20px 0 20px 0; */
-    background: rgba(45, 45, 45, 0.9);
-    padding: 30px;
+    flex: 1;
+    order: 1; /* Left side */
+    min-width: 400px;
+}
+
+/* Contact Form Section - Right side on desktop */
+.contact-form-section {
+    flex: 1;
+    order: 2; /* Right side */
+    min-width: 400px;
+}
+
+/* Form container styling */
+.form-container {
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.company-info-section h3 {
+.form-container h2 {
     color: #d10427;
-    margin-bottom: 15px;
-    font-size: 1.3em;
-    border-bottom: 2px solid #d10427;
-    padding-bottom: 5px;
+    margin-bottom: 16px;
+    text-align: center;
 }
 
-.location-section {
+.form-container p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* Business info layout improvements */
+.business-info {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.business-hours-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     margin-bottom: 30px;
 }
 
-.location-section iframe {
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.business-info p {
-    margin: 8px 0;
-    color: #ccc;
-    font-size: 1em;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin: 15px 0 25px 0;
-}
-
-.social-links a {
-    transition: transform 0.2s ease;
-}
-
-.social-links a:hover {
-    transform: scale(1.1);
-}
-
-.contact-details p {
-    margin: 8px 0;
-    color: #ccc;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-}
-
-.contact-details img {
-    margin-right: 10px;
-    flex-shrink: 0;
+.contact-details {
+    grid-column: 1 / -1; /* Span full width */
+    text-align: left;
+    padding-top: 20px;
+    border-top: 1px solid #333;
 }
 
 .contact-details a {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .contact-details a:hover {
     color: #d10427;
-    text-decoration: underline;
 }
 
-/* Right Side - Contact Form */
+.location-section {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.location-section h3 {
+    color: #d10427;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Mobile Layout - Contact form on top, business info on bottom */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 30px;
+        padding: 15px;
+    }
+    
+    /* Contact Form - Top on mobile */
+    .contact-form-section {
+        order: 1; /* Top on mobile */
+        min-width: unset;
+    }
+    
+    /* Business Info - Bottom on mobile */
+    .company-info-section {
+        order: 2; /* Bottom on mobile */
+        min-width: unset;
+    }
+    
+    .business-hours-social {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+    
+    .form-container,
+    .business-info,
+    .location-section {
+        padding: 20px;
+    }
+}
+
+/* Tablet layout adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .contact-layout {
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .company-info-section,
+    .contact-form-section {
+        min-width: 350px;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .contact-layout {
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .form-container,
+    .business-info,
+    .location-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .contact-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-layout {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+/* Contact Form Section - Now at top */
 .contact-form-section {
-    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
     background: rgba(45, 45, 45, 0.9);
-    padding: 20px 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    order: 1;
+}
+
+/* Business Info Section - Now at bottom */
+.company-info-section {
+    display: flex;
+    flex-direction: column;
+    background: rgba(45, 45, 45, 0.9);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    order: 2;
+}
+
+/* Enhanced layout for business info when at bottom */
+.company-info-section {
+    width: 100%;
+}
+
+.company-info-section .business-hours-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.company-info-section {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Mobile adjustments for contact page layout */
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 25px 20px;
+    }
+    
+    .company-info-section .business-hours-social {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .company-info-section .contact-details {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-section {
+        padding: 20px 15px;
+    }
+    
+    .company-info-section {
+        padding: 25px 20px;
+    }
 }
 
 .contact-form-section h2 {
@@ -709,16 +846,27 @@ ul {
 .social-block {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
     min-width: 140px;
+    text-align: left;
 }
 
 .business-hours-block h3,
-.social-block h3 {
+.contact-details h3, .social-block h3,
+.location-section h3 {
     margin-top: 0;
     margin-bottom: 10px;
     color: #d10427;
+    text-align: left;
+}
+
+/* Add red underline specifically for Business Hours heading */
+.business-hours-block h3,
+.contact-details h3, .social-block h3,
+.location-section h3 {
+    border-bottom: 2px solid #d10427;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 /* Service Button */
@@ -752,7 +900,7 @@ ul {
     border: none;
     cursor: pointer;
     padding: 5px;
-    z-index: 101;
+    z-index: 10060;
 }
 
 .hamburger-menu span {
@@ -1217,7 +1365,7 @@ ul {
 .carousel-top-section .carousel-slide {
     width: 60%;
     max-width: 100%;
-    height: 450px;
+    /* height: 450px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1244,7 +1392,7 @@ ul {
     width: 100%;
     background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
-    z-index: 9999;
+    z-index: 10020;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.3s ease-out;
 }
@@ -1327,11 +1475,11 @@ ul {
 
 /* Permanent Banner Styles - Static, pushes content down */
 .permanent-banner {
-    position: relative;
+    position: fixed;
     width: 100%;
     background: linear-gradient(135deg, #28a745, #1e7e34);
     color: white;
-    z-index: 1000;
+    z-index: 10020;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     animation: expandDown 0.4s ease-out;
 }
@@ -1454,4 +1602,232 @@ body.notification-active.contact-page {
 
 body.notification-active.general-page {
     margin-top: 210px; /* Original 150px + 60px for notification */
+}
+
+/* Mobile Navigation and Responsive Styles */
+@media (max-width: 1030px) {
+    .main-navbar ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        background: linear-gradient(180deg,#000 0,#d10427 70%, transparent);
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+        transition: right 0.3s ease;
+        z-index: 10050;
+        padding: 0;
+        gap: 30px;
+        margin-top: 5.5%;
+    }
+
+    .main-navbar ul.active {
+        right: 0;
+    }
+
+    .main-navbar li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-navbar a {
+        font-size: 1.5em;
+        padding: 20px;
+        /* width: 100%; */
+        display: block;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        margin-right: 20px;
+        z-index: 10060;
+        position: relative;
+    }
+
+    .navbar-content {
+        flex: 1;
+        gap: 15px;
+    }
+
+    .navbar-content img {
+        height: 120px;
+    }
+
+    .navbar-content h1 {
+        font-size: 2em;
+    }
+
+    .navbar-company-name {
+        font-size: 1.8em;
+    }
+
+    .navbar-title-subtext {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navbar {
+        padding: 8px 0;
+    }
+
+    .navbar-content {
+        gap: 10px;
+        padding-left: 15px;
+    }
+
+    .navbar-content img {
+        height: 100px;
+    }
+
+    .navbar-content h1 {
+        font-size: 1.7em;
+    }
+
+    .navbar-company-name {
+        font-size: 1.5em;
+    }
+
+    .navbar-title-subtext {
+        font-size: 1em;
+    }
+
+    .hamburger-menu {
+        margin-right: 15px;
+        display: flex;
+        z-index: 10060;
+        position: relative;
+    }
+
+    .main-navbar ul {
+        gap: 25px;
+    }
+
+    .main-navbar a {
+        font-size: 1.3em;
+        padding: 15px;
+    }
+
+    /* Adjust body margins for smaller navbar */
+    body.home-page {
+        margin-top: 120px;
+    }
+
+    body.general-page {
+        margin-top: 120px;
+    }
+
+    body.contact-page {
+        margin-top: 170px;
+    }
+
+    body.notification-active {
+        margin-top: 180px;
+    }
+
+    body.notification-active.contact-page {
+        margin-top: 230px;
+    }
+
+    body.notification-active.general-page {
+        margin-top: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-navbar {
+        padding: 5px 0;
+    }
+
+    .navbar-content {
+        gap: 8px;
+        padding-left: 10px;
+    }
+
+    .navbar-content img {
+        height: 80px;
+    }
+
+    .navbar-content h1 {
+        font-size: 1.4em;
+    }
+
+    .navbar-company-name {
+        font-size: 1.2em;
+    }
+
+    .navbar-title-subtext {
+        font-size: 0.9em;
+    }
+
+    .hamburger-menu {
+        margin-right: 10px;
+        display: flex;
+        z-index: 10060;
+        position: relative;
+    }
+
+    .hamburger-menu span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .main-navbar ul {
+        gap: 20px;
+        margin-top: 9% !important;
+    }
+
+    .main-navbar a {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+
+    /* Further adjust body margins for smallest screens */
+    body.home-page {
+        margin-top: 100px;
+    }
+
+    body.general-page {
+        margin-top: 100px;
+    }
+
+    body.contact-page {
+        margin-top: 150px;
+    }
+
+    body.notification-active {
+        margin-top: 160px;
+    }
+
+    body.notification-active.contact-page {
+        margin-top: 210px;
+    }
+
+    body.notification-active.general-page {
+        margin-top: 160px;
+    }
+
+    /* Mobile-specific adjustments */
+    .bottom-info-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .business-hours-social {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .carousel-slide {
+        width: 95%;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.8rem;
+    }
 }
