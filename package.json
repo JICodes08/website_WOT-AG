@@ -1,0 +1,16 @@
+{
+  "name": "my-company-website",
+  "version": "1.0.0",
+  "description": "A simple one-page website displaying information about my company.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "open src/index.html"
+  },
+  "keywords": [
+    "company",
+    "website",
+    "one-page"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
