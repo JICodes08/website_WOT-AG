@@ -1387,12 +1387,12 @@ ul {
 /* Notification Banner Styles */
 .notification-banner {
     position: fixed;
-    top: 150px;
+    top: 10px; 
     left: 0;
     width: 100%;
     background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
-    z-index: 10010;
+    z-index: 10060;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.3s ease-out;
 }
@@ -1637,7 +1637,7 @@ body.permanent-banner-active.notification-active.contact-page {
 
 /* Adjust notification banner position based on navbar position */
 .notification-banner.navbar-pushed {
-    top: 220px; /* 70px (permanent) + 150px (navbar) */
+    top: 500px; /* 70px (permanent) + 150px (navbar) + 280px (body) */
 }
 
 /* Mobile Navigation and Responsive Styles */
