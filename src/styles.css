@@ -1387,12 +1387,12 @@ ul {
 /* Notification Banner Styles */
 .notification-banner {
     position: fixed;
-    top: 0;
+    top: 150px;
     left: 0;
     width: 100%;
     background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
-    z-index: 10020;
+    z-index: 10010;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.3s ease-out;
 }
@@ -1476,6 +1476,7 @@ ul {
 /* Permanent Banner Styles - Static, pushes content down */
 .permanent-banner {
     position: fixed;
+    top: 0;
     width: 100%;
     background: linear-gradient(135deg, #28a745, #1e7e34);
     color: white;
@@ -1602,6 +1603,41 @@ body.notification-active.contact-page {
 
 body.notification-active.general-page {
     margin-top: 210px; /* Original 150px + 60px for notification */
+}
+
+/* When permanent banner is active, push navbar and content down */
+body.permanent-banner-active {
+    margin-top: 220px; /* 150px + ~70px for permanent banner */
+}
+
+body.permanent-banner-active.contact-page {
+    margin-top: 250px; /* 180px + ~70px for permanent banner */
+}
+
+body.permanent-banner-active.general-page {
+    margin-top: 220px;
+}
+body.permanent-banner-active.home-page {
+    margin-top: 220px;
+}
+
+/* When both banners are active */
+body.permanent-banner-active.notification-active {
+    margin-top: 280px; /* Base + permanent + notification */
+}
+
+body.permanent-banner-active.notification-active.contact-page {
+    margin-top: 310px;
+}
+
+/* Adjust navbar position when permanent banner is active */
+.navbar-pushed-down {
+    top: 70px !important; /* Pushed down by permanent banner */
+}
+
+/* Adjust notification banner position based on navbar position */
+.notification-banner.navbar-pushed {
+    top: 220px; /* 70px (permanent) + 150px (navbar) */
 }
 
 /* Mobile Navigation and Responsive Styles */
