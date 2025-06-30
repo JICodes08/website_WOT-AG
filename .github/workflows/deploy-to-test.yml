@@ -1,10 +1,10 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy to Test Environment
+name: Deploy to Production Environment
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["test"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,8 +41,8 @@ jobs:
   # Deployment job
   deploy:
     environment:
-      name: staging
-      url: ${{ steps.deployment.outputs.page_url }}statging/
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
