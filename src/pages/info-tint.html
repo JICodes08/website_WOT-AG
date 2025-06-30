@@ -9,6 +9,22 @@
 </head>
 
 <body class="general-page">
+    <!-- Permanent Banner - Static, doesn't overlap content -->
+    <div id="permanent-banner" class="permanent-banner" style="display: none;">
+        <div class="permanent-banner-content">
+            <span id="permanent-banner-message"></span>
+            <button id="permanent-banner-close" class="permanent-banner-close" aria-label="Close banner">&times;</button>
+        </div>
+    </div>
+    
+    <!-- Notification Banner -->
+    <div id="notification-banner" class="notification-banner" style="display: none;">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button id="notification-close" class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+    
     <header>
         <nav class="main-navbar">
             <div class="navbar-content">
@@ -308,6 +324,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<script src="../notification.js"></script>
 
 <footer>
     <p>&copy; 2025 Wide Open Throttle LCC. All rights reserved.</p>

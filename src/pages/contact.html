@@ -9,6 +9,22 @@
 </head>
 
 <body class="contact-page">
+    <!-- Permanent Banner - Static, doesn't overlap content -->
+    <div id="permanent-banner" class="permanent-banner" style="display: none;">
+        <div class="permanent-banner-content">
+            <span id="permanent-banner-message"></span>
+            <button id="permanent-banner-close" class="permanent-banner-close" aria-label="Close banner">&times;</button>
+        </div>
+    </div>
+    
+    <!-- Notification Banner -->
+    <div id="notification-banner" class="notification-banner" style="display: none;">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button id="notification-close" class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+    
     <header>
         <nav class="main-navbar">
             <div class="navbar-content">
@@ -170,6 +186,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <!-- Contact Form Script -->
+    <script src="../notification.js"></script>
     <script src="../contact.js"></script>
     <script src="../main.js"></script>
 </body>

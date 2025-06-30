@@ -8,6 +8,21 @@
     <link rel="icon" type="image/png" href="../media/wot-logo-2.png">
 </head>
 <body class="home-page">
+    <!-- Permanent Banner - Static, doesn't overlap content -->
+    <div id="permanent-banner" class="permanent-banner" style="display: none;">
+        <div class="permanent-banner-content">
+            <span id="permanent-banner-message"></span>
+            <button id="permanent-banner-close" class="permanent-banner-close" aria-label="Close banner">&times;</button>
+        </div>
+    </div>
+    
+    <!-- Notification Banner -->
+    <div id="notification-banner" class="notification-banner" style="display: none;">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button id="notification-close" class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
     <header>
         <nav class="main-navbar">
             <div class="navbar-content">
@@ -225,9 +240,35 @@
             </div>
         </section>
     </main>
+<script src="notification.js"></script>
 <script src="carousel.js"></script>
 <script src="gallery.js"></script>
 <script src="main.js"></script>
+
+<!-- Demo notification - you can customize or remove this -->
+<script>
+// Example: Show notifications when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a moment for the notification system to initialize
+    setTimeout(() => {
+        // Example permanent banner - stays visible, doesn't overlap content
+        window.notificationBanner.showPermanentPromotion('This website is currently a demo and under construction.', true);
+        
+        // Example notification banner - overlays temporarily
+        // window.notificationBanner.showInfo('Welcome to Wide Open Throttle! Book your appointment today.', 5000, false);
+        
+        // Other permanent banner examples you can use:
+        // window.notificationBanner.showPermanentInfo('Now offering mobile service! We come to you.', true);
+        // window.notificationBanner.showPermanentWarning('Holiday Schedule: Closed Dec 25-26, Limited hours Dec 27-31', true);
+        // window.notificationBanner.showPermanentSuccess('Grand reopening! New location, same great service.', true);
+        
+        // Other notification examples:
+        // window.notificationBanner.showWarning('Holiday Special: 20% off all services until New Year!', 0, true);
+        // window.notificationBanner.showSuccess('Now accepting appointments for 2025!', 8000);
+        // window.notificationBanner.showError('Important: We will be closed Dec 25-26 for holidays', 0, true);
+    }, 1000);
+});
+</script>
 </body>
 <footer>
     <div>

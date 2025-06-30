@@ -1236,775 +1236,222 @@ ul {
     display: block;
 }
 
-/* Mobile-first responsive design */
-@media (max-width: 1030px) {
-    body {
-        margin-top: 100px;
-    }
-    
-    .hamburger-menu {
-        display: flex;
-        margin-right: 10px;
-        flex-shrink: 0;
-        position: relative;
-        z-index: 102;
-    }
-    
-    .main-navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 5px;
-        height: auto;
-        width: 100%;
-        max-width: 100vw;
-        left: 0;
-        right: 0;
-        box-sizing: border-box;
-        position: fixed;
-        top: 0;
-    }
-    
-    .navbar-content {
-        gap: 3px;
-        flex-shrink: 1;
-        flex-grow: 1;
-        max-width: calc(100% - 60px); /* Reserve more space for hamburger */
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-    }
-    
-    .navbar-content img {
-        height: 50px;
-        margin-right: 3px;
-        flex-shrink: 0;
-    }
-    
-    .navbar-content h1 {
-        font-size: 0.95em;
-        margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-    
-    #title-sub-text {
-        font-size: 0.65em;
-        margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-    
-    .main-navbar ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 250px;
-        background: linear-gradient(180deg, #000 0, #d10427 70%, #000);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 120px;
-        transition: right 0.3s ease;
-        gap: 0;
-        z-index: 100;
-    }
-
-    .navbar-name-container {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    .navbar-company-name {
-        color: #fff;
-        font-weight: bold;
-    }
-
-    .navbar-title-subtext {
-        margin: 0;
-        font-weight: normal;
-        font-style: italic;
-        line-height: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .main-navbar ul.active {
-        right: 0;
-    }
-    
-    .main-navbar li {
-        margin: 10px 0;
-        width: 90%;
-    }
-    
-    .main-navbar a {
-        padding: 15px 20px;
-        font-size: 1.1em;
-        border-radius: 8px;
-        text-align: center;
-    }
-    
-    /* Carousel mobile styles */
-    .carousel-section {
-        margin: 20px 0;
-        padding: 0 15px;
-    }
-    
-    .carousel {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .carousel-slide {
-        width: 100%;
-        max-width: 100%;
-        height: 300px;
-        margin: 0 auto;
-        border-radius: 8px;
-    }
-    
-    .carousel-slide img {
-        height: 85%;
-        border-radius: 8px 8px 0 0;
-    }
-    
-    .carousel-slide h2 {
-        font-size: 1.1em;
-        margin: 0;
-        padding: 8px 12px;
-        border-radius: 0 0 8px 8px;
-    }
-
-    /* Company info mobile styles */
-    .company-info-section {
-        margin: 40px 0;
-        padding: 0 15px;
-    }
-    
-    .company-info {
-        padding: 25px 20px;
-        max-width: 100%;
-    }
-    
-    .company-info h2 {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-    
-    .company-info p {
-        font-size: 1.1em;
-        margin-bottom: 12px;
-    }
-    
-    /* Services mobile styles */
-    .services-section {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 15px;
-        margin: 20px 0;
-    }
-    
-    .service-card {
-        max-width: 100%;
-        margin: 0;
-        padding: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .service-card:nth-child(1) { order: 1; } /* Tinting first */
-    .service-card:nth-child(2) { order: 2; } /* Wheels & Tires second */
-    .service-card:nth-child(3) { order: 3; } /* PPF third */
-    
-    /* Gallery mobile styles */
-    .gallery-section {
-        padding: 0 15px 40px 15px;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Bottom info mobile styles */
-    .bottom-info-section {
-        flex-direction: column;
-        gap: 25px;
-        padding: 20px 15px;
-        margin: 0;
-        overflow-x: hidden;
-    }
-    
-    .location-section {
-        /* order: 3;  Map goes last -- removed to follow HTML order */
-        width: 100%;
-    }
-    
-    .location-section iframe {
-        width: 100%;
-        height: 250px;
-    }
-    
-    .business-hours {
-        order: 2; /* Business hours goes after social sections */
-        width: 100%;
-    }
-    
-    /* Reorganize business hours section for mobile */
-    .business-hours-social {
-        flex-direction: column;
-        gap: 25px;
-        margin-bottom: 25px;
-    }
-    
-    .social-block {
-        order: 1; /* Social links and contact details first */
-        width: 100%;
-    }
-    
-    .business-hours-block {
-        order: 2; /* Business hours second */
-        width: 100%;
-        min-width: auto;
-    }
-    
-    /* Fix contact details overflow */
-    .contact-details {
-        width: 100%;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-    
-    .contact-details p {
-        margin: 8px 0;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        line-height: 1.4;
-    }
-    
-    .contact-details a {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        display: inline-block;
-        max-width: calc(100% - 30px); /* Account for icon width */
-    }
-    
-    /* Social links mobile adjustments */
-    .social-links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-    
-    /* Lightbox mobile adjustments */
-    .lightbox-close {
-        top: 20px;
-        right: 20px;
-        font-size: 2em;
-    }
-    
-    .lightbox-nav {
-        font-size: 1.8em;
-        padding: 10px 15px;
-    }
-    
-    #lightbox-prev { left: 20px; }
-    #lightbox-next { right: 20px; }
-    
-    /* Main content mobile adjustments */
-    .main-content {
-        margin: 0 5px;
-        padding: 10px 0;
-    }
-    
-    .main-content h1 {
-        font-size: 2em;
-    }
-    
-    /* Tinting page mobile styles */
-    .carousel-top-section {
-        margin: 20px 0;
-        padding: 0 15px;
-    }
-    
-    .carousel-top-section .carousel-slide {
-        width: 100%;
-        max-width: 450px;
-        height: 320px;
-    }
-    
-    .carousel-top-section .carousel-slide img {
-        height: 260px;
-    }
-    
-    /* Keep same carousel controls on mobile */
-    .carousel-top-section .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 2.2rem;
-        opacity: 0;
-        pointer-events: none;
-    }
-    
-    .carousel-top-section .tinting-carousel:hover .carousel-btn,
-    .carousel-top-section .tinting-carousel:focus-within .carousel-btn {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .info-content {
-        flex-direction: column;
-        gap: 25px;
-    }
-    
-    .info-image {
-        flex: none;
-        max-width: 100%;
-    }
-    
-    /* Advanced Tinting Section Mobile */
-    .advanced-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .advanced-image {
-        flex: none;
-        max-width: 100%;
-        order: 1;
-    }
-    
-    .advanced-image img {
-        height: 300px;
-    }
-    
-    .advanced-text {
-        order: 2;
-    }
-    
-    .advanced-text h2 {
-        font-size: 2em;
-        text-align: center;
-    }
-    
-    .advanced-intro {
-        font-size: 1.2em;
-        text-align: center;
-    }
-    
-    .performance-stats {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .stat {
-        padding: 15px 0;
-    }
-    
-    .stat-number {
-        font-size: 2em;
-    }
-    
-    .advanced-tinting-section {
-        padding: 50px 0;
-    }
-    
-    .tinting-info-section,
-    .tinting-options-section {
-        padding: 40px 0;
-    }
-    
-    .info-container,
-    .options-container {
-        padding: 0;
-    }
-    
-    /* Comparison Table Mobile Styles */
-    .comparison-table-wrapper {
-        margin: 0;
-        padding: 0 15px;
-    }
-    
-    .tinting-comparison-table th,
-    .tinting-comparison-table td {
-        padding: 15px 10px;
-        font-size: 0.9em;
-    }
-    
-    .option-header h3 {
-        font-size: 1.2em;
-    }
-    
-    .price {
-        font-size: 1.4em;
-    }
-    
-    .film-type {
-        font-size: 0.8em;
-    }
-    
-    .option-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-        min-width: 100px;
-    }
+/* Notification Banner Styles */
+.notification-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-out;
 }
 
-@media (max-width: 480px) {
-    body {
-        margin-top: 100px;
-        padding: 0;
-        width: 100%;
-    }
-
-    body.contact-page {
-        margin-top: 50px; /* Adjusts content to account for nav bar */
-    }
-    
-    .navbar-content img {
-        height: 40px;
-        margin-right: 2px;
-    }
-    
-    .navbar-content h1 {
-        font-size: 0.85em;
-    }
-    
-    #title-sub-text {
-        font-size: 0.6em;
-    }
-    
-    .hamburger-menu {
-        margin-right: 8px;
-        position: relative;
-        z-index: 102;
-        flex-shrink: 0;
-    }
-    
-    .main-navbar {
-        padding: 8px 5px;
-        max-width: 100vw;
-        box-sizing: border-box;
-    }
-    
-    .navbar-content {
-        max-width: calc(100% - 50px); /* Ensure space for hamburger */
-    }
-
-    .navbar-name-container {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    .navbar-company-name {
-        color: #fff;
-        font-weight: bold;
-    }
-
-    .navbar-title-subtext {
-        margin: 0;
-        font-size: 70%;
-        font-weight: normal;
-        font-style: italic;
-        line-height: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .carousel-section {
-        padding: 0 10px;
-        margin: 15px 0;
-    }
-    
-    .carousel-slide {
-        width: 100%;
-        height: 250px;
-        margin: 0;
-    }
-    
-    .carousel-slide img {
-        height: 85%;
-    }
-    
-    .carousel-slide h2 {
-        font-size: 1em;
-        padding: 6px 10px;
-    }
-    
-    /* Company info small mobile */
-    .company-info-section {
-        margin: 20px 0 20px 0;
-        padding: 0 10px;
-    }
-    
-    .company-info {
-        padding: 20px 15px;
-    }
-    
-    .company-info h2 {
-        font-size: 1.6em;
-    }
-    
-    .company-info p {
-        font-size: 1em;
-        margin-bottom: 10px;
-    }
-    
-    .service-card {
-        padding: 15px;
-        margin: 0;
-    }
-    
-    .services-section,
-    .gallery-section,
-    .bottom-info-section {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .gallery-grid img {
-        height: 150px;
-    }
-    
-    .main-content {
-        margin: 0 5px;
-        padding:0;
-    }
-    
-    .main-content h1 {
-        font-size: 1.8em;
-    }
-    
-    /* Tinting page small mobile styles */
-    .carousel-top-section {
-        padding: 0 10px;
-    }
-    
-    .carousel-top-section .carousel-slide {
-        width: calc(100vw - 40px);
-    }
-    
-    /* Advanced Tinting Section Small Mobile */
-    .advanced-container {
-        padding: 0 10px;
-    }
-    
-    .advanced-tinting-section {
-        padding: 40px 0;
-        margin: 20px 0;
-    }
-    
-    .advanced-content {
-        gap: 25px;
-    }
-    
-    .advanced-image img {
-        height: 250px;
-        border-radius: 10px;
-    }
-    
-    .advanced-text h2 {
-        font-size: 1.8em;
-    }
-    
-    .advanced-intro {
-        font-size: 1.1em;
-    }
-    
-    .tech-feature {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .tech-feature h4 {
-        font-size: 1.2em;
-    }
-    
-    .tech-feature p {
-        font-size: 1em;
-    }
-    
-    .performance-stats {
-        padding: 20px 15px;
-        gap: 15px;
-    }
-    
-    .stat-number {
-        font-size: 1.8em;
-    }
-    
-    .stat-label {
-        font-size: 1em;
-    }
-    
-    /* Small Mobile Comparison Table */
-    .comparison-table-wrapper {
-        margin: 0;
-        padding: 0 10px;
-    }
-    
-    .tinting-comparison-table th,
-    .tinting-comparison-table td {
-        padding: 12px 8px;
-        font-size: 0.8em;
-    }
-    
-    .option-header h3 {
-        font-size: 1.1em;
-        margin-bottom: 8px;
-    }
-    
-    .price {
-        font-size: 1.2em;
-        margin: 8px 0;
-    }
-    
-    .film-type {
-        font-size: 0.75em;
-    }
-    
-    .feature-name {
-        font-size: 0.9em;
-    }
-    
-    .option-btn {
-        padding: 8px 16px;
-        font-size: 0.8em;
-        min-width: 80px;
-    }
-    
-    .carousel-top-section .carousel-slide {
-        height: 280px;
-        margin: 0 auto;
-    }
-    
-    .carousel-top-section .carousel-slide img {
-        height: 220px;
-    }
-    
-    /* Maintain same carousel controls on small mobile */
-    .carousel-top-section .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1.8rem;
-        opacity: 0;
-        pointer-events: none;
-    }
-    
-    .carousel-top-section .tinting-carousel:hover .carousel-btn,
-    .carousel-top-section .tinting-carousel:focus-within .carousel-btn {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    
-    .benefit-item {
-        padding: 20px;
-    }
-    
-    .option-card {
-        padding: 20px;
-    }
-    
-    .price {
-        font-size: 1.5em;
-    }
-    
-    .info-container h2,
-    .options-container h2 {
-        font-size: 1.8em;
-    }
-    
-    /* Options carousel small mobile styles */
-    .option-card {
-        flex: 0 0 calc(100vw - 60px);
-        padding: 15px;
-    }
-    
-    .options-carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1.5rem;
-    }
+.notification-banner.info {
+    background: linear-gradient(135deg, #007bff, #0056b3);
 }
 
-/* Company Info Section */
-.company-info-section {
+.notification-banner.success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.notification-banner.warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #000;
+}
+
+.notification-banner.error {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+}
+
+.notification-content {
     display: flex;
-    /* justify-content: center; */
-    padding: 20px 20px;
-    /* margin: 20px 0 20px 0; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.company-info {
-    max-width: 800px;
-    background: rgba(0,0,0,0.3);
-    color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    padding: 40px 32px;
+.notification-banner #notification-message {
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.notification-banner.slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Permanent Banner Styles - Static, pushes content down */
+.permanent-banner {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: expandDown 0.4s ease-out;
+}
+
+.permanent-banner.info {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.permanent-banner.success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.permanent-banner.warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #000;
+}
+
+.permanent-banner.error {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+}
+
+.permanent-banner.promotion {
+    background: linear-gradient(135deg, #6f42c1, #5a2d91);
+}
+
+.permanent-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.permanent-banner #permanent-banner-message {
+    flex: 1;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
     text-align: center;
 }
 
-.company-info h2 {
-    color: #d10427;
-    margin-bottom: 20px;
-    font-size: 2.2em;
+.permanent-banner-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
 }
 
-.company-info p {
-    color: #fff;
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 16px;
+.permanent-banner-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.company-info p:last-child {
-    margin-bottom: 0;
+@keyframes expandDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    to {
+        max-height: 200px;
+        opacity: 1;
+        overflow: visible;
+    }
 }
 
-@media (max-width: 1030px) {
-    .contact-layout {
+.permanent-banner.collapse {
+    animation: collapseUp 0.4s ease-out forwards;
+}
+
+@keyframes collapseUp {
+    from {
+        max-height: 200px;
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+}
+
+/* Mobile responsiveness for permanent banner */
+@media (max-width: 768px) {
+    .permanent-banner-content {
+        padding: 15px;
         flex-direction: column;
+        text-align: center;
     }
-    .contact-form-section {
-        order: 1;
-        margin-bottom: 30px;
+    
+    .permanent-banner #permanent-banner-message {
+        font-size: 16px;
+        margin-bottom: 10px;
     }
-    .company-info-section {
-        order: 2;
-        /* margin: 20px 0 20px 0; */
+    
+    .permanent-banner-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        margin: 0;
     }
 }
 
-@media (max-width: 480px) {
-    .contact-layout {
-        flex-direction: column;
-    }
-    .contact-form-section {
-        order: 1;
-        margin: 0 20px 10px 20px;
-    }
-    .company-info-section {
-        order: 2;
-        /* margin: 0 20px 20px 20px; */
-    }
+/* Body margin adjustment when notification is shown */
+body.notification-active {
+    margin-top: 210px; /* Original 150px + 60px for notification */
+}
+
+body.notification-active.contact-page {
+    margin-top: 260px; /* Original 200px + 60px for notification */
+}
+
+body.notification-active.general-page {
+    margin-top: 210px; /* Original 150px + 60px for notification */
 }

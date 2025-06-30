@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Banner Demo</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .demo-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .demo-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .demo-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .demo-btn:hover {
+            background: #0056b3;
+        }
+        .demo-btn.success { background: #28a745; }
+        .demo-btn.warning { background: #ffc107; color: #000; }
+        .demo-btn.error { background: #dc3545; }
+        .demo-btn.info { background: #17a2b8; }
+        
+        .code-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="general-page">
+    <!-- Permanent Banner - Static, doesn't overlap content -->
+    <div id="permanent-banner" class="permanent-banner" style="display: none;">
+        <div class="permanent-banner-content">
+            <span id="permanent-banner-message"></span>
+            <button id="permanent-banner-close" class="permanent-banner-close" aria-label="Close banner">&times;</button>
+        </div>
+    </div>
+    
+    <!-- Notification Banner -->
+    <div id="notification-banner" class="notification-banner" style="display: none;">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button id="notification-close" class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+
+    <div class="demo-container">
+        <h1>Notification Banner Demo</h1>
+        <p>Test the different types of notification banners:</p>
+        
+        <div class="demo-buttons">
+            <h3>Notification Banners (Overlay)</h3>
+            <button class="demo-btn info" onclick="testInfo()">Info Notification</button>
+            <button class="demo-btn success" onclick="testSuccess()">Success Notification</button>
+            <button class="demo-btn warning" onclick="testWarning()">Warning Notification</button>
+            <button class="demo-btn error" onclick="testError()">Error Notification</button>
+            <button class="demo-btn" onclick="testPersistent()">Persistent Notification</button>
+            <button class="demo-btn" onclick="testAutoHide()">Auto-Hide (5s)</button>
+            
+            <h3>Permanent Banners (Static, No Overlap)</h3>
+            <button class="demo-btn info" onclick="testPermanentInfo()">Permanent Info</button>
+            <button class="demo-btn success" onclick="testPermanentSuccess()">Permanent Success</button>
+            <button class="demo-btn warning" onclick="testPermanentWarning()">Permanent Warning</button>
+            <button class="demo-btn error" onclick="testPermanentError()">Permanent Error</button>
+            <button class="demo-btn" style="background: #6f42c1;" onclick="testPermanentPromotion()">Permanent Promotion</button>
+            <button class="demo-btn" style="background: #dc3545;" onclick="hidePermanentBanner()">Hide Permanent Banner</button>
+        </div>
+
+        <h2>How to Use</h2>
+        <p>After including the notification.js script, you can use these methods:</p>
+
+        <h3>Basic Usage:</h3>
+        <div class="code-example">
+// Show a simple notification
+window.notificationBanner.show('Your message here');
+
+// Show with type
+window.notificationBanner.showInfo('Information message');
+window.notificationBanner.showSuccess('Success message');
+window.notificationBanner.showWarning('Warning message');
+window.notificationBanner.showError('Error message');
+        </div>
+
+        <h3>Advanced Usage:</h3>
+        <div class="code-example">
+// Notification Banners (overlay, temporary)
+window.notificationBanner.show('Message', 'info', 5000);
+window.notificationBanner.show('Persistent message', 'warning', 0, true);
+window.notificationBanner.hide();
+
+// Permanent Banners (static, doesn't overlap content)
+window.notificationBanner.showPermanent('Promotion message', 'promotion', true);
+window.notificationBanner.showPermanentInfo('Information banner');
+window.notificationBanner.hidePermanent();
+        </div>
+
+        <h3>Common Use Cases:</h3>
+        <div class="code-example">
+// Permanent promotion banner
+window.notificationBanner.showPermanentPromotion('25% off window tinting - Limited time!', true);
+
+// Permanent business announcement  
+window.notificationBanner.showPermanentInfo('Now offering mobile service!', true);
+
+// Temporary welcome notification
+window.notificationBanner.showSuccess('Welcome! Thanks for visiting.', 5000);
+
+// Holiday hours (permanent until dismissed)
+window.notificationBanner.showPermanentWarning('Holiday Schedule: Closed Dec 25-26', true);
+        </div>
+
+        <p><a href="../index.html" style="color: #007bff;">← Back to Home</a></p>
+    </div>
+
+    <script src="../notification.js"></script>
+    <script>
+        function testInfo() {
+            window.notificationBanner.showInfo('This is an informational message!');
+        }
+
+        function testSuccess() {
+            window.notificationBanner.showSuccess('Operation completed successfully!');
+        }
+
+        function testWarning() {
+            window.notificationBanner.showWarning('This is a warning message!');
+        }
+
+        function testError() {
+            window.notificationBanner.showError('This is an error message!');
+        }
+
+        function testPersistent() {
+            window.notificationBanner.show('This notification will persist across page reloads!', 'info', 0, true);
+        }
+
+        function testAutoHide() {
+            window.notificationBanner.show('This notification will auto-hide in 5 seconds', 'success', 5000);
+        }
+        
+        // Permanent banner test functions
+        function testPermanentInfo() {
+            window.notificationBanner.showPermanentInfo('This is a permanent info banner - it pushes content down!');
+        }
+        
+        function testPermanentSuccess() {
+            window.notificationBanner.showPermanentSuccess('Permanent success banner - great for announcements!');
+        }
+        
+        function testPermanentWarning() {
+            window.notificationBanner.showPermanentWarning('Permanent warning banner - perfect for important notices!');
+        }
+        
+        function testPermanentError() {
+            window.notificationBanner.showPermanentError('Permanent error banner - ideal for urgent messages!');
+        }
+        
+        function testPermanentPromotion() {
+            window.notificationBanner.showPermanentPromotion('🎉 Special Promotion: 25% off all services this month! 🎉');
+        }
+        
+        function hidePermanentBanner() {
+            window.notificationBanner.hidePermanent();
+        }
+    </script>
+</body>
+</html>
