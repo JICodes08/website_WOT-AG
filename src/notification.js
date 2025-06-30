@@ -127,7 +127,7 @@ class NotificationBanner {
     /**
      * Convenience methods for different notification types
      */
-    showInfo(message, autoHide = 0, persistent = false) {
+    showInfo(message, autoHide = 5000, persistent = false) {
         this.show(message, 'info', autoHide, persistent);
     }
     
@@ -135,11 +135,11 @@ class NotificationBanner {
         this.show(message, 'success', autoHide, persistent);
     }
     
-    showWarning(message, autoHide = 0, persistent = false) {
+    showWarning(message, autoHide = 5000, persistent = false) {
         this.show(message, 'warning', autoHide, persistent);
     }
     
-    showError(message, autoHide = 0, persistent = false) {
+    showError(message, autoHide = 5000, persistent = false) {
         this.show(message, 'error', autoHide, persistent);
     }
     
@@ -170,6 +170,22 @@ class NotificationBanner {
         // Show banner
         this.permanentBanner.style.display = 'block';
         
+        // ADD THESE LINES FOR NEW POSITIONING SYSTEM:
+        // Add class to body to adjust margins
+        document.body.classList.add('permanent-banner-active');
+        
+        // Push navbar down
+        const navbar = document.querySelector('.main-navbar');
+        if (navbar) {
+            navbar.classList.add('navbar-pushed-down');
+        }
+        
+        // Adjust notification banner position if it exists
+        const notificationBanner = document.getElementById('notification-banner');
+        if (notificationBanner && notificationBanner.style.display !== 'none') {
+            notificationBanner.classList.add('navbar-pushed');
+        }
+        
         // Store in localStorage if persistent
         if (persistent) {
             localStorage.setItem('permanentBanner', JSON.stringify({
@@ -189,6 +205,22 @@ class NotificationBanner {
         setTimeout(() => {
             this.permanentBanner.style.display = 'none';
             this.permanentBanner.classList.remove('collapse');
+            
+            // ADD THESE LINES FOR NEW POSITIONING SYSTEM:
+            // Remove body class
+            document.body.classList.remove('permanent-banner-active');
+            
+            // Reset navbar position
+            const navbar = document.querySelector('.main-navbar');
+            if (navbar) {
+                navbar.classList.remove('navbar-pushed-down');
+            }
+            
+            // Reset notification banner position
+            const notificationBanner = document.getElementById('notification-banner');
+            if (notificationBanner) {
+                notificationBanner.classList.remove('navbar-pushed');
+            }
             
             // Clear stored permanent banner
             localStorage.removeItem('permanentBanner');
