@@ -1,6 +1,8 @@
-# My Company Website
+# WOT-AG Company Website
 
-This is a simple one-page website that provides information about my company. It includes sections for the company name, description, services offered, and contact information.
+Website to provide informational tools for the customers of WOT-AG.
+
+Demo Link: https://jicodes08.github.io/website_WOT-AG/src/index.html#
 
 ## Project Structure
 
@@ -15,20 +17,6 @@ my-company-website
 ```
 
 ## Getting Started
-
-To get started with this project, follow these steps:
-
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd my-company-website
-   ```
-
-3. Open the `index.html` file in your web browser to view the website.
 
 ## Features
 
